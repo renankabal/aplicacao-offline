@@ -18,7 +18,7 @@
 			    	</div>
 			    	<input type="file" name="file" required/>
 			  	</div>
-			  		<button type="submit" class="btn btn-primary">Enviar Arquivo</button>
+			  		<button type="submit" class="btn btn-primary">Abrir Arquivo</button>
 			</form>
 		</div>
 

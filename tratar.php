@@ -80,11 +80,11 @@
 			        <?php
 			        foreach ($data as $pessoa){
 			        	$pega_nome 		= $pessoa['Nome'];
-			        	$pega_email 		= $pessoa['Email'];
-			        	$pega_idade 		= $pessoa['Idade'];
+			        	$pega_email 	= $pessoa['Email'];
+			        	$pega_idade 	= $pessoa['Idade'];
 			        	$pega_ocupacao 	= $pessoa['Ocupacao'];
 	
-			        	$sql = "INSERT INTO dados (nome, email, idade, ocupacao) VALUES ('$pega_nome', '$pega_email', '$pega_idade', '$pega_ocupacao');";
+			        	$sql = "INSERT INTO dados (nome, email, idade, ocupacao) VALUES ('$pega_nome', '$pega_email', '$pega_idade', '$pega_ocupacao');<br>";
 			        ?>			        
 			        <tr>
 			          	<td><?php echo $pega_nome;?></td>
@@ -97,7 +97,7 @@
 			        ?>
 			    </table>
 		    	<p align="center">
-		    		<button type="submit" class="btn btn-success">Salvar</button>
+		    		<button type="submit" class="btn btn-success">Salvar no banco de dados</button>
 		    	</p>
 			</form>	
 		</div>
