@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<?php
+	include('layouts/head.php');
+?>
+<body>
+
 <?php
 	$data = array();
 
@@ -48,28 +55,46 @@
 			$first_row = false;
 		}//termino do primeiro foreach
 	?>
-	<table border="0" width="50%">
-		<tr>
-			<td>Nome</td>
-			<td>Email</td>
-			<td>Idade</td>
-			<td>Ocupacao</td>
-		</tr>
-		<?php
-		foreach ($data as $row){
-		?>
-		<tr>
-			<td><?php echo $row['Nome']?></td>
-			<td><?php echo $row['Email']?></td>
-			<td><?php echo $row['Idade']?></td>
-			<td><?php echo $row['Ocupacao']?></td>
-		</tr>
-		<?php
-		}
-		?>
-	</table>
+	<div class="row">
+		<div class="col-md-4">
+			<p><br></p>
+		</div>
+
+		<div class="col-md-4">
+			<table class="table table-striped">
+		     	<thead>
+		        	<tr>
+		          		<th>Nome</th>
+		          		<th>Email</th>
+		          		<th>Idade</th>
+		          		<th>Ocupacao</th>
+		        	</tr>
+		      	</thead>
+		        <?php
+		        foreach ($data as $row){
+		        ?>
+		        <tr>
+		          	<td><?php echo $row['Nome'];?></td>
+		          	<td><?php echo $row['Email'];?></td>
+		          	<td><?php echo $row['Idade'];?></td>
+		          	<td><?php echo $row['Ocupacao'];?></td>
+		        </tr>
+		        <?php
+		        }
+		        ?>
+		    </table>
+		</div>
+
+		<div class="col-md-4"></div>
+
+	</div>
 	<?php
 	}else{
-		echo "Nenhum arquivo encontrado!";
+		echo "
+		<div class='alert alert-danger' role='alert'>
+    		Nenhum arquivo encontrado!
+    	</div>";
 	}
 ?>
+</body>
+</html>

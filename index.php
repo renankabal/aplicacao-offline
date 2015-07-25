@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Teste</title>
-	<link rel="stylesheet" href="public/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="public/font-awesome/css/font-awesome.min.css">
-</head>
+<?php
+	include('layouts/head.php');
+?>
 <body>
 	<div class="row">
-		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<p><br></p>
+		</div>
 
 		<div class="col-md-4">
 			<form action="tratar.php" enctype="multipart/form-data" method="post"> 
