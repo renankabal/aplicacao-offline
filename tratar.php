@@ -4,7 +4,13 @@
 	include('layouts/head.php');
 ?>
 <body>
-
+<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-success" role="alert">
+	    		Confirme todos os dados antes de salvar as informações! 
+	    	</div>
+		</div>
+</div>
 <?php
 	$data = array();
 
@@ -17,7 +23,7 @@
 			'Idade' 	=> $idade,
 			'Ocupacao' 	=> $ocupacao
 		);		
-	}//Termina a funÃ§Ã£o de adicionar pessoa
+	}//Termina a função de adicionar pessoa
 
 	#Testa se existe arquivo
 	if($_FILES['file']['tmp_name'])
@@ -61,28 +67,39 @@
 		</div>
 
 		<div class="col-md-4">
-			<table class="table table-striped">
-		     	<thead>
-		        	<tr>
-		          		<th>Nome</th>
-		          		<th>Email</th>
-		          		<th>Idade</th>
-		          		<th>Ocupacao</th>
-		        	</tr>
-		      	</thead>
-		        <?php
-		        foreach ($data as $row){
-		        ?>
-		        <tr>
-		          	<td><?php echo $row['Nome'];?></td>
-		          	<td><?php echo $row['Email'];?></td>
-		          	<td><?php echo $row['Idade'];?></td>
-		          	<td><?php echo $row['Ocupacao'];?></td>
-		        </tr>
-		        <?php
-		        }
-		        ?>
-		    </table>
+			<form action="dados_sql.php" method="post" name="dados">
+				<table class="table table-striped">
+			     	<thead>
+			        	<tr>
+			          		<th>Nome</th>
+			          		<th>Email</th>
+			          		<th>Idade</th>
+			          		<th>Ocupacao</th>
+			        	</tr>
+			      	</thead>
+			        <?php
+			        foreach ($data as $pessoa){
+			        	$pega_nome 		= $pessoa['Nome'];
+			        	$pega_email 		= $pessoa['Email'];
+			        	$pega_idade 		= $pessoa['Idade'];
+			        	$pega_ocupacao 	= $pessoa['Ocupacao'];
+	
+			        	$sql = "INSERT INTO dados (nome, email, idade, ocupacao) VALUES ('$pega_nome', '$pega_email', '$pega_idade', '$pega_ocupacao');";
+			        ?>			        
+			        <tr>
+			          	<td><?php echo $pega_nome;?></td>
+			          	<td><?php echo $pega_email;?></td>
+			          	<td><?php echo $pega_idade;?></td>
+			          	<td><?php echo $pega_ocupacao;?></td>
+			        </tr>
+			        <?php
+			        }
+			        ?>
+			    </table>
+		    	<p align="center">
+		    		<button type="submit" class="btn btn-success">Salvar</button>
+		    	</p>
+			</form>	
 		</div>
 
 		<div class="col-md-4"></div>
